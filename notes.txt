@@ -1,0 +1,23 @@
+#step1
+
+response.setHeader() allows you only to set a singular header.
+
+response.writeHead() will allow you to set pretty much everything about the
+ response head including status code, content, and multiple headers.
+
+ var body = "hello world";
+ response.setHeader("Content-Length", body.length);
+ response.setHeader("Content-Type", "text/plain");
+ response.setHeader("Set-Cookie", "type=ninja");
+ response.status(200);
+
+
+ var body = "hello world";
+ response.writeHead(200, {
+     "Content-Length": body.length,
+     "Content-Type": "text/plain",
+     "Set-Cookie": "type=ninja"
+ });
+
+
+    return  universalFunction.setPathOfRequest(dataToSend,url.parse(req.url).pathname)
