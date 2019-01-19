@@ -1,0 +1,10 @@
+#####  Ignoring node modules  #####
+node_modules/
+
+#### Ignoring logs files  #####
+
+log/
+
+## .idea folder
+
+.idea/
