@@ -3,6 +3,9 @@ let universalFunctions             = require('../Lib/UniversalFunctions'),
     config                          = require('../Config/appConstant');
 
 
+
+
+/////////////////////////////////////////////////////// adminLogin ///////////////////////////////////////////////////
 async function adminLogin (payload) {
     try{
 
@@ -58,6 +61,94 @@ async function checkUserExists(data)
     }
 };
 
+/////////////////////////////////////////////////////// addItems ///////////////////////////////////////////////////
+async function addItems (payload) {
+    try{
+
+        let sql    = "INSERT INTO items(name,brand,category,productCode) VALUES (?,?,?,?)",
+            params = [payload.name,payload.brand,payload.category,payload.productCode];
+           let dataToSend =   await db.connection.query(sql,params);
+
+        return {
+            statusCode      :  200,
+            message         : "Successfully added Item",
+            data            : dataToSend
+        };
+
+    }
+    catch (er)
+    {
+
+        console.log(er);
+        return {
+            statusCode  : 400,
+            message     : er.sqlMessage || er.customMessage,
+            responseType: er.code || er.type,
+        };
+    }
+
+};
+
+/////////////////////////////////////////////////////// addVariants ///////////////////////////////////////////////////
+async function addVariants (payload) {
+    try{
+
+        let sql    = "INSERT INTO variants(itemId,name) VALUES (?,?)",
+            params = [payload.itemId,payload.name];
+        let dataToSend =   await db.connection.query(sql,params);
+
+        return {
+            statusCode      :  200,
+            message         : "Successfully added Variants",
+            data            : dataToSend
+        };
+
+    }
+    catch (er)
+    {
+
+        console.log(er);
+        return {
+            statusCode  : 400,
+            message     : er.sqlMessage || er.customMessage,
+            responseType: er.code || er.type,
+        };
+    }
+
+};
+
+
+/////////////////////////////////////////////////////// addProperties ///////////////////////////////////////////////////
+async function addProperties (payload) {
+    try{
+
+        let sql    = "INSERT INTO properties(size,clothType,variantId,itemId,costPrice,sellingPrice,quanity) VALUES (?,?,?,?,?,?,?)",
+            params = [payload.size,payload.clothType,payload.variantId,payload.itemId,payload.costPrice,payload.sellingPrice,payload.quanity];
+        let dataToSend =   await db.connection.query(sql,params);
+
+        return {
+            statusCode      :  200,
+            message         : "Successfully added Property",
+            data            : dataToSend
+        };
+
+    }
+    catch (er)
+    {
+
+        console.log(er);
+        return {
+            statusCode  : 400,
+            message     : er.sqlMessage || er.customMessage,
+            responseType: er.code || er.type,
+        };
+    }
+
+};
+
 module.exports = {
     adminLogin              : adminLogin           ,
+    addItems                : addItems             ,
+    addVariants             : addVariants          ,
+    addProperties           : addProperties
 };

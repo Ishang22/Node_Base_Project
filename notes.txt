@@ -1,23 +1,105 @@
+# lessen 1
+
+  select *
+from
+    tableA a
+        inner join
+    tableB b
+        on a.common = b.common
+        inner join
+    TableC c
+        on b.common = c.common
+
+# lessen 2
+
+        SELECT a.`id`,a.`languageId`,a.`orderStatus`,a.`locationQuestion`,a.`locationFrom`,a.`fromLat`,
+        a.`fromLong`,a.`dateQuestion`,a.`dayMillis`,a.`exactTime`,a.`locationTo`,a.`toLat`,a.`toLong`,a.`userId`,a.`serviceId`,a.`serviceBranchId`,a.`createdDate`,b.`serviceName`, c.`serviceName`
+        AS serviceBranchName,
+        COALESCE(V1.temp,'') as vendorData
+        FROM `orders`
+        a
+        INNER JOIN serviceLanguage b ON
+        a.serviceId = b.serviceId AND a.languageId = b.languageId
+        INNER JOIN serviceBranchLanguage c ON
+        a.serviceBranchId = c.serviceBranchId AND a.languageId = c.languageId
+        LEFT JOIN (
+            SELECT
+            group_concat(CONCAT(V.id,',', V.`fullName`,',',V.`fullNumber`) separator ':') as temp,
+            V.id, VO.orderId
+            FROM vendors V JOIN vendorOffer VO
+            ON (VO.vendorId=V.id) WHERE V.id=VO.vendorId GROUP BY VO.orderId  )
+            as V1 ON (a.id=V1.orderId)
+        where a.userId = 1 AND a.orderStatus = "REQUESTED"
+
+
+        # lessen 3
+
+        SELECT a.`id`,a.`languageId`,a.`orderStatus`,a.`locationQuestion`,a.`locationFrom`,a.`fromLat`,
+        a.`fromLong`,a.`dateQuestion`,a.`dayMillis`,a.`exactTime`,a.`locationTo`,a.`toLat`,a.`toLong`,a.`userId`,a.`serviceId`,a.`serviceBranchId`,a.`createdDate`,b.`serviceName`, c.`serviceName`,
+        (SELECT group_concat(CONCAT(V.id,',', V.`fullName`,',',V.`fullNumber`) separator ':') FROM vendors V JOIN vendorOffer VO ON (VO.vendorId=V.id) WHERE V.id=VO.vendorId AND a.id=VO.orderId GROUP BY VO.orderId) as temp11
+
+        FROM `orders`
+        a
+        INNER JOIN serviceLanguage b ON
+        a.serviceId = b.serviceId AND a.languageId = b.languageId
+        INNER JOIN serviceBranchLanguage c ON
+        a.serviceBranchId = c.serviceBranchId AND a.languageId = c.languageId
+        where a.userId = 1 AND a.orderStatus = "REQUESTED"
+
+
+
+
+
+
+SELECT     (case when senderId = ?
+            then
+             (case when receiverType='VENDOR'
+                         then
+                          ( SELECT CONCAT(V.id,'$', V.`fullName`,'$',V.`fullNumber`,'$',V.originalImage,'$',V.thumbnailImage)
+                             FROM chat c JOIN vendors V ON (c.receiverId=V.id  ) where  c.id = d.id )
+                         else
+                          (SELECT CONCAT(V.id,'$', V.`fullName`,'$',V.`fullNumber`,'$',V.originalImage,
+                         '$',V.thumbnailImage)  FROM chat c JOIN users V ON (c.receiverId=V.id )
+                            where  c.id = d.id
+                          ) END)
+            else
+             (case when senderType = 'VENDOR'
+                         then
+                          (SELECT CONCAT(V.id,'$', V.`fullName`,'$',V.`fullNumber`,'$',V.originalImage,'$',V.thumbnailImage)
+                           FROM chat c JOIN vendors V ON (c.receiverId=V.id)  where  c.id = d.id )
+                         else
+                          (SELECT CONCAT(V.id,'$', V.`fullName`,'$',V.`fullNumber`,'$',V.originalImage,
+                         '$',V.thumbnailImage)  FROM chat c JOIN users V ON (c.receiverId=V.id )  where  c.id = d.id ) END)
+                         END) AS receiverData,d.createdDate,d.text
+             FROM `chat` d WHERE d.id IN (
+SELECT max(id) FROM chat where receiverId= ? OR senderId= ? group by conversationId
+             )
+
+
+
+
+ALTER TABLE `Links` ADD `versionNo` VARCHAR(100) NOT NULL AFTER `isSetActive`;
+
+
+
+
 #step1
-
 response.setHeader() allows you only to set a singular header.
-
 response.writeHead() will allow you to set pretty much everything about the
  response head including status code, content, and multiple headers.
-
  var body = "hello world";
  response.setHeader("Content-Length", body.length);
  response.setHeader("Content-Type", "text/plain");
  response.setHeader("Set-Cookie", "type=ninja");
  response.status(200);
-
-
  var body = "hello world";
  response.writeHead(200, {
      "Content-Length": body.length,
      "Content-Type": "text/plain",
      "Set-Cookie": "type=ninja"
  });
+ return  universalFunction.setPathOfRequest(dataToSend,url.parse(req.url).pathname)
 
+ `%${data.search}%`
 
-    return  universalFunction.setPathOfRequest(dataToSend,url.parse(req.url).pathname)
+  ORDER BY createdDate ASC

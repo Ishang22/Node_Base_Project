@@ -1,7 +1,8 @@
 let   { parse }    = require('querystring'),
         url        = require('url'),
         MD5        = require('md5'),
-    config         = require('../Config/appConstant'),
+    db                 = require('./connection'),
+     config        = require('../Config/appConstant'),
      crypto        = require('crypto'),
     algorithm      = 'aes256',
     key            = 'fa7ec3d6eadedd4ce0f76d754bc4a962';
@@ -19,22 +20,39 @@ function getRequestData(request) {
 };
 
 async function postRequestData(request) {
-    return new Promise((resolve, reject) => {
-        let body = '';
+    return new Promise(async (resolve, reject) => {
 
-        request.on('data', chunk => {
-            body += chunk.toString();
-        });
+        let isAccessToken=0,userData={}
+        if(request.headers.authorization && request.headers.authorization!=='')
+        {
+            userData = await (validateUser((await decryptToken(request.headers.authorization)), request.headers.authorization));
+            isAccessToken=1;
+            if(!userData){
+
+                console.log("==config.STATUS_MSG.ERROR.INVALID_TOKEN===",config.STATUS_MSG.ERROR.INVALID_TOKEN);
+                reject(config.STATUS_MSG.ERROR.INVALID_TOKEN)
+            }
+        }
+
+
+        let body = '';
+        request.on('data', chunk => {body += chunk.toString();});
 
         request.on('end', () => {
             let data = parse(body);
-            console.log(data);
+            if(isAccessToken)
+            {
+                data.userData = userData[0];
+            }
             resolve(data);
         });
+
+
     });
-
-
 };
+
+
+
 
 async function encryptToken(data) {
     console.log(data);
@@ -48,6 +66,36 @@ async function decryptToken(data) {
     let  decipher = crypto.createDecipher(algorithm, key);
    return decipher.update(data, 'hex', 'utf8') + decipher.final('utf8');
 };
+
+
+async function validateUser(data,accessToken) {
+
+    let  sql='',userType = JSON.parse(data).userType;
+
+    if (userType === config.userType.user){
+        console.log("====step1 ======");
+        sql= "select * from user where id =? and accessToken = ?";
+
+    }
+    else if (userType === config.userType.admin){
+        console.log("====step2 ======");
+        sql= "select * from admins  where id =? and accessToken = ?";
+    }
+
+   let dataToSend = await  db.connection.query(sql,[JSON.parse(data).id,accessToken]);
+
+    console.log("===[JSON.parse(data).id,accessToken]==============",[JSON.parse(data).id,accessToken],JSON.parse(data).userType);
+   if(dataToSend.length>0)
+   {
+       return dataToSend;
+   }
+   else
+   {
+       return null;
+   }
+
+};
+
 
 
 module.exports={

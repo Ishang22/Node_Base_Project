@@ -4,12 +4,11 @@ let  appConstant = require('../Config/appConstant'),
 
 
 function setPathOfRequest(dataToSend,pathname) {
-
     pathname= pathname.split('/');
 
     if(pathname[1]===appConstant.Path.USER)
     {
-        return  controller.userController[pathname[2]]();
+        return  controller.userController[pathname[2]](dataToSend);
     }
     else if(pathname[1]===appConstant.Path.ADMIN)
     {
