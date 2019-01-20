@@ -6,34 +6,34 @@
 module.exports ={
     test: {
         "host": "localhost",
-        "user": "root",
-        "password": "codebrew",
-        "database": "stockInventory",
+        "user": process.env.username,
+        "password": process.env.password,
+        "database": process.env.database,
         "mysqlPORT":3306,
         "multipleStatements": true
     },
     dev : {
         "host": "localhost",
-        "user": "root",
-        "password": "codebrew",
-        "database": "stockInventory",
+        "user": process.env.username,
+        "password": process.env.password,
+        "database": process.env.database,
         "mysqlPORT":3306,
         "multipleStatements": true
 
     },
     live:{
         "host": "localhost",
-        "user": "root",
-        "password": "codebrew",
-        "database": "stockInventory",
+        "user": process.env.username,
+        "password": process.env.password,
+        "database": process.env.database,
         "mysqlPORT":"",
         "multipleStatements": true
     },
     client:{
         "host": "localhost",
-        "user": "root",
-        "password": "codebrew",
-        "database": "stockInventory",
+        "user": process.env.username,
+        "password": process.env.password,
+        "database": process.env.database,
         "mysqlPORT":"",
         "multipleStatements": true
     }

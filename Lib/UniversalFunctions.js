@@ -4,8 +4,8 @@ let   { parse }    = require('querystring'),
     db                 = require('./connection'),
      config        = require('../Config/appConstant'),
      crypto        = require('crypto'),
-    algorithm      = 'aes256',
-    key            = 'fa7ec3d6eadedd4ce0f76d754bc4a962';
+    algorithm      = process.env.algorithm,
+    key            = process.env.key;
 
 
 
@@ -30,7 +30,7 @@ async function postRequestData(request) {
             if(!userData){
 
                 console.log("==config.STATUS_MSG.ERROR.INVALID_TOKEN===",config.STATUS_MSG.ERROR.INVALID_TOKEN);
-                reject(config.STATUS_MSG.ERROR.INVALID_TOKEN)
+                return reject(config.STATUS_MSG.ERROR.INVALID_TOKEN)
             }
         }
 

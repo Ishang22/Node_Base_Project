@@ -4,9 +4,26 @@ let  mysql = require('mysql'),
      connection;
 
 
+let db_config;
+
+if(process.env.NODE_ENV === "test"){
+    console.log("===========test===============");
+    db_config = dbConfig.test;
+}else if(process.env.NODE_ENV === "live"){
+    console.log("===========live===============");
+    db_config = dbConfig.live;
+}else if(process.env.NODE_ENV === "client"){
+    console.log("===========client===============");
+    db_config = dbConfig.client;
+}else{
+    console.log("===========dev===============");
+    db_config = dbConfig.dev;
+}
+
+
 async function handleDisconnect() {
     try{
-        connection = mysql.createConnection(dbConfig.client);
+        connection = mysql.createConnection(db_config);
         connection.query = util.promisify(connection.query);
         await connection.connect();
         await createTables();

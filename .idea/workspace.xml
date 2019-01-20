@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="932ea351-47fa-46d5-a03d-72d3dc20b105" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.env" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Config/appConstant.js" afterPath="$PROJECT_DIR$/Config/appConstant.js" />
+      <change beforePath="$PROJECT_DIR$/Config/dbConfig.js" afterPath="$PROJECT_DIR$/Config/dbConfig.js" />
+      <change beforePath="$PROJECT_DIR$/Controller/adminController.js" afterPath="$PROJECT_DIR$/Controller/adminController.js" />
       <change beforePath="$PROJECT_DIR$/Controller/userController.js" afterPath="$PROJECT_DIR$/Controller/userController.js" />
+      <change beforePath="$PROJECT_DIR$/Lib/UniversalFunctions.js" afterPath="$PROJECT_DIR$/Lib/UniversalFunctions.js" />
+      <change beforePath="$PROJECT_DIR$/Lib/connection.js" afterPath="$PROJECT_DIR$/Lib/connection.js" />
+      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,41 +25,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="userController.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Controller/userController.js">
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="469" column="36" lean-forward="false" selection-start-line="469" selection-start-column="36" selection-end-line="469" selection-end-column="36" />
-              <folding>
-                <element signature="e#845#1044#0" expanded="false" />
-                <element signature="n#!!block;n#checkUserAlreadyExists#0" expanded="false" />
-                <element signature="n#!!block;n#saveEntryOfUser#0" expanded="false" />
-                <element signature="n#!!block;n#login#0" expanded="false" />
-                <element signature="e#2500#2699#0" expanded="false" />
-                <element signature="n#!!block;n#checkUserExists#0" expanded="false" />
-                <element signature="n#!!block;n#itemListing#0" expanded="false" />
-                <element signature="e#3636#3835#0" expanded="false" />
-                <element signature="n#!!block;n#itemListingFunction#0" expanded="false" />
-                <element signature="n#!!block;n#itemListingCount#0" expanded="false" />
-                <element signature="n#!!block;n#editProducts#0" expanded="false" />
-                <element signature="e#4964#5163#0" expanded="false" />
-                <element signature="n#!!block;n#getProductDetails#0" expanded="false" />
-                <element signature="n#!!block;n#updateItemData#0" expanded="false" />
-                <element signature="e#5938#6018#0" expanded="false" />
-                <element signature="e#6083#6255#0" expanded="false" />
-                <element signature="e#6327#6513#0" expanded="false" />
-                <element signature="e#6591#6783#0" expanded="false" />
-                <element signature="n#!!block;n#getVariants#0" expanded="false" />
-                <element signature="e#7812#8011#0" expanded="false" />
-                <element signature="n#!!block;n#getVariantFunction#0" expanded="false" />
-                <element signature="n#!!block;n#getVariantCount#0" expanded="false" />
-                <element signature="n#!!block;n#editVariants#0" expanded="false" />
-                <element signature="e#9597#9796#0" expanded="false" />
-                <element signature="n#!!block;n#getVariantDetails#0" expanded="false" />
-                <element signature="n#!!block;n#updatePropertyData#0" expanded="false" />
-                <element signature="n#!!block;n#generateUserLogsForVariants#0" expanded="false" />
-                <element signature="e#13483#13682#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="-45">
+              <caret line="3" column="48" lean-forward="true" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -72,6 +52,10 @@
       <find>getVariantLogs</find>
       <find>sql=sql +&quot; AND clothType LIKE ? OR  size LIKE ?&quot;</find>
       <find>userData</find>
+      <find>login</find>
+      <find>isDe</find>
+      <find>variantId</find>
+      <find>getVariants</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -85,20 +69,21 @@
         <option value="$PROJECT_DIR$/controller.js" />
         <option value="$PROJECT_DIR$/Routes/userRoutes.js" />
         <option value="$PROJECT_DIR$/Routes/index.js" />
-        <option value="$PROJECT_DIR$/Config/dbConfig.js" />
         <option value="$PROJECT_DIR$/Utils/connection.js" />
         <option value="$PROJECT_DIR$/Controller/index.js" />
         <option value="$PROJECT_DIR$/Config/index.js" />
         <option value="$PROJECT_DIR$/Utils/index.js" />
         <option value="$PROJECT_DIR$/Utils/UniversalFunctions.js" />
         <option value="$PROJECT_DIR$/test.js" />
-        <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/Controller/adminController.js" />
         <option value="$PROJECT_DIR$/Lib/requestParser.js" />
-        <option value="$PROJECT_DIR$/Config/appConstant.js" />
-        <option value="$PROJECT_DIR$/Lib/connection.js" />
         <option value="$PROJECT_DIR$/notes.txt" />
+        <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/Lib/UniversalFunctions.js" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/Config/dbConfig.js" />
+        <option value="$PROJECT_DIR$/Lib/connection.js" />
+        <option value="$PROJECT_DIR$/Config/appConstant.js" />
+        <option value="$PROJECT_DIR$/Controller/adminController.js" />
         <option value="$PROJECT_DIR$/Controller/userController.js" />
       </list>
     </option>
@@ -159,11 +144,6 @@
               <item name="Node_Pure" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Node_Pure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Node_Pure" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -210,12 +190,12 @@
       <workItem from="1547877922199" duration="4632000" />
       <workItem from="1547883741402" duration="28652000" />
       <workItem from="1547968969406" duration="525000" />
-      <workItem from="1547969567103" duration="17498000" />
+      <workItem from="1547969567103" duration="21318000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51307000" />
+    <option name="totallyTimeSpent" value="55127000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="27" width="1299" height="743" extended-state="6" />
@@ -279,34 +259,34 @@
         <state relative-caret-position="210">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <element signature="e#845#1044#0" expanded="false" />
+            <element signature="n#!!block;n#signUp#0" expanded="false" />
+            <element signature="e#844#1043#0" expanded="false" />
             <element signature="n#!!block;n#checkUserAlreadyExists#0" expanded="false" />
             <element signature="n#!!block;n#saveEntryOfUser#0" expanded="false" />
+            <element signature="n#!!block;n#setTokenInDb#0" expanded="false" />
             <element signature="n#!!block;n#login#0" expanded="false" />
-            <element signature="e#2500#2699#0" expanded="false" />
+            <element signature="e#2596#2795#0" expanded="false" />
             <element signature="n#!!block;n#checkUserExists#0" expanded="false" />
-            <element signature="n#!!block;n#itemListing#0" expanded="false" />
-            <element signature="e#3636#3835#0" expanded="false" />
-            <element signature="n#!!block;n#itemListingFunction#0" expanded="false" />
+            <element signature="e#3734#3933#0" expanded="false" />
             <element signature="n#!!block;n#itemListingCount#0" expanded="false" />
             <element signature="n#!!block;n#editProducts#0" expanded="false" />
-            <element signature="e#4964#5163#0" expanded="false" />
+            <element signature="e#5142#5341#0" expanded="false" />
             <element signature="n#!!block;n#getProductDetails#0" expanded="false" />
-            <element signature="n#!!block;n#updateItemData#0" expanded="false" />
-            <element signature="e#5938#6018#0" expanded="false" />
-            <element signature="e#6083#6255#0" expanded="false" />
-            <element signature="e#6327#6513#0" expanded="false" />
-            <element signature="e#6591#6783#0" expanded="false" />
-            <element signature="n#!!block;n#getVariants#0" expanded="false" />
-            <element signature="e#7812#8011#0" expanded="false" />
+            <element signature="e#6116#6196#0" expanded="false" />
+            <element signature="e#6261#6433#0" expanded="false" />
+            <element signature="e#6505#6691#0" expanded="false" />
+            <element signature="e#6769#6961#0" expanded="false" />
+            <element signature="e#7990#8189#0" expanded="false" />
             <element signature="n#!!block;n#getVariantFunction#0" expanded="false" />
             <element signature="n#!!block;n#getVariantCount#0" expanded="false" />
             <element signature="n#!!block;n#editVariants#0" expanded="false" />
-            <element signature="e#9597#9796#0" expanded="false" />
+            <element signature="e#9803#10002#0" expanded="false" />
             <element signature="n#!!block;n#getVariantDetails#0" expanded="false" />
             <element signature="n#!!block;n#updatePropertyData#0" expanded="false" />
             <element signature="n#!!block;n#generateUserLogsForVariants#0" expanded="false" />
-            <element signature="e#13483#13682#0" expanded="false" />
+            <element signature="e#13689#13888#0" expanded="false" />
+            <element signature="n#!!block;n#getUserLogsFunction#0" expanded="false" />
+            <element signature="n#!!block;n#getUserLogsCount#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -371,34 +351,34 @@
         <state relative-caret-position="210">
           <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <element signature="e#845#1044#0" expanded="false" />
+            <element signature="n#!!block;n#signUp#0" expanded="false" />
+            <element signature="e#844#1043#0" expanded="false" />
             <element signature="n#!!block;n#checkUserAlreadyExists#0" expanded="false" />
             <element signature="n#!!block;n#saveEntryOfUser#0" expanded="false" />
+            <element signature="n#!!block;n#setTokenInDb#0" expanded="false" />
             <element signature="n#!!block;n#login#0" expanded="false" />
-            <element signature="e#2500#2699#0" expanded="false" />
+            <element signature="e#2596#2795#0" expanded="false" />
             <element signature="n#!!block;n#checkUserExists#0" expanded="false" />
-            <element signature="n#!!block;n#itemListing#0" expanded="false" />
-            <element signature="e#3636#3835#0" expanded="false" />
-            <element signature="n#!!block;n#itemListingFunction#0" expanded="false" />
+            <element signature="e#3734#3933#0" expanded="false" />
             <element signature="n#!!block;n#itemListingCount#0" expanded="false" />
             <element signature="n#!!block;n#editProducts#0" expanded="false" />
-            <element signature="e#4964#5163#0" expanded="false" />
+            <element signature="e#5142#5341#0" expanded="false" />
             <element signature="n#!!block;n#getProductDetails#0" expanded="false" />
-            <element signature="n#!!block;n#updateItemData#0" expanded="false" />
-            <element signature="e#5938#6018#0" expanded="false" />
-            <element signature="e#6083#6255#0" expanded="false" />
-            <element signature="e#6327#6513#0" expanded="false" />
-            <element signature="e#6591#6783#0" expanded="false" />
-            <element signature="n#!!block;n#getVariants#0" expanded="false" />
-            <element signature="e#7812#8011#0" expanded="false" />
+            <element signature="e#6116#6196#0" expanded="false" />
+            <element signature="e#6261#6433#0" expanded="false" />
+            <element signature="e#6505#6691#0" expanded="false" />
+            <element signature="e#6769#6961#0" expanded="false" />
+            <element signature="e#7990#8189#0" expanded="false" />
             <element signature="n#!!block;n#getVariantFunction#0" expanded="false" />
             <element signature="n#!!block;n#getVariantCount#0" expanded="false" />
             <element signature="n#!!block;n#editVariants#0" expanded="false" />
-            <element signature="e#9597#9796#0" expanded="false" />
+            <element signature="e#9803#10002#0" expanded="false" />
             <element signature="n#!!block;n#getVariantDetails#0" expanded="false" />
             <element signature="n#!!block;n#updatePropertyData#0" expanded="false" />
             <element signature="n#!!block;n#generateUserLogsForVariants#0" expanded="false" />
-            <element signature="e#13483#13682#0" expanded="false" />
+            <element signature="e#13689#13888#0" expanded="false" />
+            <element signature="n#!!block;n#getUserLogsFunction#0" expanded="false" />
+            <element signature="n#!!block;n#getUserLogsCount#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -407,6 +387,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -445,21 +426,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Config/dbConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="18" column="35" lean-forward="false" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="3" lean-forward="false" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Routes/userRoutes.js" />
     <entry file="file://$PROJECT_DIR$/Config/index.js" />
     <entry file="file://$PROJECT_DIR$/Utils/index.js" />
@@ -467,13 +433,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -493,47 +452,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Config/appConstant.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="22" column="22" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="49" lean-forward="false" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/adminController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="67" column="6" lean-forward="true" selection-start-line="67" selection-start-column="6" selection-end-line="69" selection-end-column="68" />
-          <folding>
-            <element signature="e#809#1008#0" expanded="false" />
-            <element signature="n#!!block;n#setTokenInDb#0" expanded="false" />
-            <element signature="n#!!block;n#checkUserExists#0" expanded="false" />
-            <element signature="n#!!block;n#addVariants#0" expanded="false" />
-            <element signature="n#!!block;n#addProperties#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Lib/connection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="77" column="116" lean-forward="false" selection-start-line="77" selection-start-column="98" selection-end-line="77" selection-end-column="116" />
-          <folding>
-            <element signature="n#!!block;n#handleDisconnect#0" expanded="false" />
-            <element signature="n#!!block;n#addAdmins#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Lib/requestParser.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -542,11 +460,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Lib/UniversalFunctions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="44" column="29" lean-forward="false" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="29" />
+        <state relative-caret-position="90">
+          <caret line="6" column="21" lean-forward="true" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="32" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="8" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lib/connection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="53" lean-forward="false" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
+          <folding>
+            <element signature="n#!!block;n#addAdmins#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -558,40 +502,96 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/appConstant.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/dbConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="31" column="4" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/adminController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="154" column="0" lean-forward="false" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#adminLogin#0" expanded="false" />
+            <element signature="e#809#1008#0" expanded="false" />
+            <element signature="n#!!block;n#setTokenInDb#0" expanded="false" />
+            <element signature="n#!!block;n#checkUserExists#0" expanded="false" />
+            <element signature="n#!!block;n#addItems#0" expanded="false" />
+            <element signature="n#!!block;n#addVariants#0" expanded="false" />
+            <element signature="n#!!block;n#addProperties#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Controller/userController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="469" column="36" lean-forward="false" selection-start-line="469" selection-start-column="36" selection-end-line="469" selection-end-column="36" />
+        <state relative-caret-position="-985">
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding>
-            <element signature="e#845#1044#0" expanded="false" />
+            <element signature="n#!!block;n#signUp#0" expanded="false" />
+            <element signature="e#844#1043#0" expanded="false" />
             <element signature="n#!!block;n#checkUserAlreadyExists#0" expanded="false" />
             <element signature="n#!!block;n#saveEntryOfUser#0" expanded="false" />
+            <element signature="n#!!block;n#setTokenInDb#0" expanded="false" />
             <element signature="n#!!block;n#login#0" expanded="false" />
-            <element signature="e#2500#2699#0" expanded="false" />
+            <element signature="e#2596#2795#0" expanded="false" />
             <element signature="n#!!block;n#checkUserExists#0" expanded="false" />
             <element signature="n#!!block;n#itemListing#0" expanded="false" />
-            <element signature="e#3636#3835#0" expanded="false" />
+            <element signature="e#3734#3933#0" expanded="false" />
             <element signature="n#!!block;n#itemListingFunction#0" expanded="false" />
             <element signature="n#!!block;n#itemListingCount#0" expanded="false" />
             <element signature="n#!!block;n#editProducts#0" expanded="false" />
-            <element signature="e#4964#5163#0" expanded="false" />
+            <element signature="e#5142#5341#0" expanded="false" />
             <element signature="n#!!block;n#getProductDetails#0" expanded="false" />
             <element signature="n#!!block;n#updateItemData#0" expanded="false" />
-            <element signature="e#5938#6018#0" expanded="false" />
-            <element signature="e#6083#6255#0" expanded="false" />
-            <element signature="e#6327#6513#0" expanded="false" />
-            <element signature="e#6591#6783#0" expanded="false" />
+            <element signature="n#!!block;n#generateUserLogs#0" expanded="false" />
+            <element signature="e#6116#6196#0" expanded="false" />
+            <element signature="e#6261#6433#0" expanded="false" />
+            <element signature="e#6505#6691#0" expanded="false" />
+            <element signature="e#6769#6961#0" expanded="false" />
             <element signature="n#!!block;n#getVariants#0" expanded="false" />
-            <element signature="e#7812#8011#0" expanded="false" />
+            <element signature="e#7990#8189#0" expanded="false" />
             <element signature="n#!!block;n#getVariantFunction#0" expanded="false" />
             <element signature="n#!!block;n#getVariantCount#0" expanded="false" />
             <element signature="n#!!block;n#editVariants#0" expanded="false" />
-            <element signature="e#9597#9796#0" expanded="false" />
+            <element signature="e#9803#10002#0" expanded="false" />
             <element signature="n#!!block;n#getVariantDetails#0" expanded="false" />
             <element signature="n#!!block;n#updatePropertyData#0" expanded="false" />
             <element signature="n#!!block;n#generateUserLogsForVariants#0" expanded="false" />
-            <element signature="e#13483#13682#0" expanded="false" />
+            <element signature="n#!!block;n#getUserLogs#0" expanded="false" />
+            <element signature="e#13689#13888#0" expanded="false" />
+            <element signature="n#!!block;n#getUserLogsFunction#0" expanded="false" />
+            <element signature="n#!!block;n#getUserLogsCount#0" expanded="false" />
+            <element signature="n#!!block;n#deleteItem#0" expanded="false" />
+            <element signature="n#!!block;n#deleteVariants#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="3" column="48" lean-forward="true" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>

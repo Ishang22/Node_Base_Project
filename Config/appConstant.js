@@ -41,7 +41,9 @@ const STATUS_MSG = {
             type : 'DUPLICATE_EMAIL'
         },
     },
-}
+};
+
+
 let APP_CONSTANTS = {
     Path     : Path,
     userType : userType,

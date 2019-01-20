@@ -1,3 +1,5 @@
+
+require('dotenv').config();
 const http                = require('http'),
        db                 = require('./Lib/connection'),
       requestParser       = require('./Lib/requestParser'),

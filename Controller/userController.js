@@ -3,14 +3,7 @@ let universalFunctions             = require('../Lib/UniversalFunctions'),
     config                          = require('../Config/appConstant');
 
 
-
-
-
-
-
-
 /////////////////////////////////////////////////////// signUp ///////////////////////////////////////////////////
-
 async function signUp(payload) {
     try{
      let step1 = await  checkUserAlreadyExists(payload);
@@ -64,11 +57,13 @@ async function saveEntryOfUser(data)
 
 async function setTokenInDb(data)
 {
-    let token =  await  universalFunctions.encryptToken({id:data.insertId?data.insertId:data.id,type:config.userType.user}),
+    let token =  await  universalFunctions.encryptToken({id:data.insertId?data.insertId:data[0].id,type:config.userType.user}),
         sql   =  "update user set accessToken = ? where id=?";
-    await db.connection.query(sql,[token,data.insertId]);
+    console.log([token,(data.insertId?data.insertId:data[0].id)])
+    await db.connection.query(sql,[token,(data.insertId?data.insertId:data[0].id)]);
     return token;
 };
+
 
 
 /////////////////////////////////////////////////////// login ///////////////////////////////////////////////////
@@ -118,6 +113,7 @@ async function checkUserExists(data)
 /////////////////////////////////////////////////////// Item-Listing ///////////////////////////////////////////////////
 async function itemListing(payload) {
     try{
+
         let step1 =   itemListingFunction(payload);
         let step2 =   itemListingCount();
         return {
@@ -127,8 +123,9 @@ async function itemListing(payload) {
                 listing         : await step1,
                 count            : (await  step2)[0].count
             }
-
         };
+
+
     }
     catch (er)
     {
@@ -149,8 +146,12 @@ async function itemListingFunction(data)
 
     if(data.searchParameter)
     {
-        sql=sql +" WHERE name LIKE ?";
+        sql=sql +" WHERE name LIKE ? AND isDeleted = 0";
         arr=[`%${data.searchParameter}%`]
+    }
+    else
+    {
+        sql=sql +" WHERE isDeleted = 0";
     }
 
     sql=sql +" ORDER BY createdAt ASC";
@@ -292,15 +293,17 @@ async function getVariants(payload) {
 
 async function getVariantFunction(data)
 {
-    let sql = "SELECT p.`id`,p.`size`,p.`clothType`,p.`createdAt`,p.`variantId`,p.`itemId`,p.`costPrice`,p.`sellingPrice`," +
-        "p.`quanity`,p.`isDeleted`,v.name,v.id AS variantId FROM `properties` p INNER JOIN variants v ON p.`variantId`= v.id WHERE " +
+    let sql = "SELECT p.`id`,p.`size`,p.`clothType`,p.`createdAt`,p.`variantId`,p.`itemId`,p.`costPrice`," +
+        "p.`sellingPrice`," +
+        "p.`quanity`,p.`isDeleted`,v.name,v.id AS variantId FROM `properties` " +
+        "p INNER JOIN variants v ON p.`variantId`= v.id WHERE " +
         "p.`itemId` = ? AND v.isDeleted=0 AND p.isDeleted=0 AND p.quanity>0",arr=[parseInt(data.itemId)];
 
   //clothType
     //	size
     if(data.searchParameter)
     {
-        sql=sql +" AND clothType LIKE ? OR  size LIKE ?";
+        sql=sql +" AND (clothType LIKE ? OR  size LIKE ?)";
         arr=[...arr,...[`%${data.searchParameter}%`,`%${data.searchParameter}%`]];
     }
 
@@ -469,19 +472,72 @@ async function getUserLogs(payload) {
 
 async function getUserLogsFunction(data)
 {
-    let sql = "SELECT * from userLogs where userId = ? ",arr=[data.userId];
+    let sql = "SELECT * from userLogs",arr=[];
+
+    if(data.userId && data.userId!=='')
+    {
+        sql=sql+' where userId = ? ';
+        arr=[data.userId];
+    }
+
     return    db.connection.query(sql,arr);
 };
 
 async function getUserLogsCount(data)
 {
-    let sql = "select COUNT(id) AS count from userLogs where userId = ?";
-    let arr = [data.userId];
+    let sql = "select COUNT(id) AS count from userLogs",arr=[];
+
+    if(data.userId && data.userId!=='')
+    {
+        sql=sql+' where userId = ? ';
+        arr=[data.userId];
+    }
     return db.connection.query(sql,arr);
 
 };
 
 
+/////////////////////////////////////////////////////// deleteItem ///////////////////////////////////////////////////
+async function deleteItem(data)
+{
+
+    console.log("================data=======================",data);
+   let sql   =  "update items set isDeleted = 1  where id=?";
+          await db.connection.query(sql,[parseInt(data.itemId)]);
+
+       sql   =  "update variants set isDeleted = 1  where itemId=?";
+         await db.connection.query(sql,[parseInt(data.itemId)]);
+
+       sql   =  "update properties set isDeleted = 1  where itemId=?";
+       await db.connection.query(sql,[parseInt(data.itemId)]);
+
+
+    return {
+        statusCode      :  200,
+        message         : "Items Deleted Succesfully",
+        data            : null
+
+    };
+};
+
+/////////////////////////////////////////////////////// deleteVariants ///////////////////////////////////////////////////
+async function deleteVariants(data)
+{
+
+   let sql   =  "update variants set isDeleted = 1  where id=? ";
+    await db.connection.query(sql,[parseInt(data.variantId)]);
+
+    sql   =  "update properties set isDeleted = 1  where variantId=? and itemId=?";
+    await db.connection.query(sql,[parseInt(data.variantId),parseInt(data.itemId)]);
+
+
+    return {
+        statusCode      :  200,
+        message         : "variant Deleted Succesfully",
+        data            : null
+
+    };
+};
 
 
 
@@ -495,5 +551,7 @@ module.exports = {
     editProducts        : editProducts,
     getVariants         : getVariants,
     editVariants        : editVariants,
-    getUserLogs         : getUserLogs
+    getUserLogs         : getUserLogs,
+    deleteItem          : deleteItem,
+    deleteVariants      : deleteVariants
 };
