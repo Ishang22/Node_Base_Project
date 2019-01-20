@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="932ea351-47fa-46d5-a03d-72d3dc20b105" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Config/appConstant.js" afterPath="$PROJECT_DIR$/Config/appConstant.js" />
-      <change beforePath="$PROJECT_DIR$/Controller/adminController.js" afterPath="$PROJECT_DIR$/Controller/adminController.js" />
       <change beforePath="$PROJECT_DIR$/Controller/userController.js" afterPath="$PROJECT_DIR$/Controller/userController.js" />
-      <change beforePath="$PROJECT_DIR$/Lib/UniversalFunctions.js" afterPath="$PROJECT_DIR$/Lib/UniversalFunctions.js" />
-      <change beforePath="$PROJECT_DIR$/Lib/connection.js" afterPath="$PROJECT_DIR$/Lib/connection.js" />
-      <change beforePath="$PROJECT_DIR$/Lib/requestParser.js" afterPath="$PROJECT_DIR$/Lib/requestParser.js" />
-      <change beforePath="$PROJECT_DIR$/notes.txt" afterPath="$PROJECT_DIR$/notes.txt" />
-      <change beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="userController.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="userController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Controller/userController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="205" column="0" lean-forward="true" selection-start-line="205" selection-start-column="0" selection-end-line="205" selection-end-column="0" />
+            <state relative-caret-position="216">
+              <caret line="469" column="36" lean-forward="false" selection-start-line="469" selection-start-column="36" selection-end-line="469" selection-end-column="36" />
               <folding>
                 <element signature="e#845#1044#0" expanded="false" />
                 <element signature="n#!!block;n#checkUserAlreadyExists#0" expanded="false" />
@@ -44,22 +36,21 @@
                 <element signature="e#4964#5163#0" expanded="false" />
                 <element signature="n#!!block;n#getProductDetails#0" expanded="false" />
                 <element signature="n#!!block;n#updateItemData#0" expanded="false" />
-                <element signature="n#!!block;n#generateUserLogs#0" expanded="false" />
                 <element signature="e#5938#6018#0" expanded="false" />
                 <element signature="e#6083#6255#0" expanded="false" />
                 <element signature="e#6327#6513#0" expanded="false" />
                 <element signature="e#6591#6783#0" expanded="false" />
+                <element signature="n#!!block;n#getVariants#0" expanded="false" />
+                <element signature="e#7812#8011#0" expanded="false" />
+                <element signature="n#!!block;n#getVariantFunction#0" expanded="false" />
+                <element signature="n#!!block;n#getVariantCount#0" expanded="false" />
+                <element signature="n#!!block;n#editVariants#0" expanded="false" />
+                <element signature="e#9597#9796#0" expanded="false" />
+                <element signature="n#!!block;n#getVariantDetails#0" expanded="false" />
+                <element signature="n#!!block;n#updatePropertyData#0" expanded="false" />
+                <element signature="n#!!block;n#generateUserLogsForVariants#0" expanded="false" />
+                <element signature="e#13483#13682#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="notes.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/notes.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1245">
-              <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -74,9 +65,13 @@
       <find>db</find>
       <find>brand</find>
       <find>config</find>
-      <find>search</find>
       <find>createdAt</find>
       <find>update</find>
+      <find>search</find>
+      <find>LIKE</find>
+      <find>getVariantLogs</find>
+      <find>sql=sql +&quot; AND clothType LIKE ? OR  size LIKE ?&quot;</find>
+      <find>userData</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -215,16 +210,15 @@
       <workItem from="1547877922199" duration="4632000" />
       <workItem from="1547883741402" duration="28652000" />
       <workItem from="1547968969406" duration="525000" />
-      <workItem from="1547969567103" duration="13500000" />
+      <workItem from="1547969567103" duration="17498000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47309000" />
+    <option name="totallyTimeSpent" value="51307000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="27" width="1299" height="743" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -233,7 +227,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16176471" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24019608" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -299,11 +293,20 @@
             <element signature="e#4964#5163#0" expanded="false" />
             <element signature="n#!!block;n#getProductDetails#0" expanded="false" />
             <element signature="n#!!block;n#updateItemData#0" expanded="false" />
-            <element signature="n#!!block;n#generateUserLogs#0" expanded="false" />
             <element signature="e#5938#6018#0" expanded="false" />
             <element signature="e#6083#6255#0" expanded="false" />
             <element signature="e#6327#6513#0" expanded="false" />
             <element signature="e#6591#6783#0" expanded="false" />
+            <element signature="n#!!block;n#getVariants#0" expanded="false" />
+            <element signature="e#7812#8011#0" expanded="false" />
+            <element signature="n#!!block;n#getVariantFunction#0" expanded="false" />
+            <element signature="n#!!block;n#getVariantCount#0" expanded="false" />
+            <element signature="n#!!block;n#editVariants#0" expanded="false" />
+            <element signature="e#9597#9796#0" expanded="false" />
+            <element signature="n#!!block;n#getVariantDetails#0" expanded="false" />
+            <element signature="n#!!block;n#updatePropertyData#0" expanded="false" />
+            <element signature="n#!!block;n#generateUserLogsForVariants#0" expanded="false" />
+            <element signature="e#13483#13682#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -382,11 +385,20 @@
             <element signature="e#4964#5163#0" expanded="false" />
             <element signature="n#!!block;n#getProductDetails#0" expanded="false" />
             <element signature="n#!!block;n#updateItemData#0" expanded="false" />
-            <element signature="n#!!block;n#generateUserLogs#0" expanded="false" />
             <element signature="e#5938#6018#0" expanded="false" />
             <element signature="e#6083#6255#0" expanded="false" />
             <element signature="e#6327#6513#0" expanded="false" />
             <element signature="e#6591#6783#0" expanded="false" />
+            <element signature="n#!!block;n#getVariants#0" expanded="false" />
+            <element signature="e#7812#8011#0" expanded="false" />
+            <element signature="n#!!block;n#getVariantFunction#0" expanded="false" />
+            <element signature="n#!!block;n#getVariantCount#0" expanded="false" />
+            <element signature="n#!!block;n#editVariants#0" expanded="false" />
+            <element signature="e#9597#9796#0" expanded="false" />
+            <element signature="n#!!block;n#getVariantDetails#0" expanded="false" />
+            <element signature="n#!!block;n#updatePropertyData#0" expanded="false" />
+            <element signature="n#!!block;n#generateUserLogsForVariants#0" expanded="false" />
+            <element signature="e#13483#13682#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -538,10 +550,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/notes.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1245">
+          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Controller/userController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="205" column="0" lean-forward="true" selection-start-line="205" selection-start-column="0" selection-end-line="205" selection-end-column="0" />
+        <state relative-caret-position="216">
+          <caret line="469" column="36" lean-forward="false" selection-start-line="469" selection-start-column="36" selection-end-line="469" selection-end-column="36" />
           <folding>
             <element signature="e#845#1044#0" expanded="false" />
             <element signature="n#!!block;n#checkUserAlreadyExists#0" expanded="false" />
@@ -557,20 +577,21 @@
             <element signature="e#4964#5163#0" expanded="false" />
             <element signature="n#!!block;n#getProductDetails#0" expanded="false" />
             <element signature="n#!!block;n#updateItemData#0" expanded="false" />
-            <element signature="n#!!block;n#generateUserLogs#0" expanded="false" />
             <element signature="e#5938#6018#0" expanded="false" />
             <element signature="e#6083#6255#0" expanded="false" />
             <element signature="e#6327#6513#0" expanded="false" />
             <element signature="e#6591#6783#0" expanded="false" />
+            <element signature="n#!!block;n#getVariants#0" expanded="false" />
+            <element signature="e#7812#8011#0" expanded="false" />
+            <element signature="n#!!block;n#getVariantFunction#0" expanded="false" />
+            <element signature="n#!!block;n#getVariantCount#0" expanded="false" />
+            <element signature="n#!!block;n#editVariants#0" expanded="false" />
+            <element signature="e#9597#9796#0" expanded="false" />
+            <element signature="n#!!block;n#getVariantDetails#0" expanded="false" />
+            <element signature="n#!!block;n#updatePropertyData#0" expanded="false" />
+            <element signature="n#!!block;n#generateUserLogsForVariants#0" expanded="false" />
+            <element signature="e#13483#13682#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notes.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1245">
-          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>

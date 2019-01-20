@@ -4,7 +4,13 @@ let universalFunctions             = require('../Lib/UniversalFunctions'),
 
 
 
+
+
+
+
+
 /////////////////////////////////////////////////////// signUp ///////////////////////////////////////////////////
+
 async function signUp(payload) {
     try{
      let step1 = await  checkUserAlreadyExists(payload);
@@ -257,10 +263,237 @@ async function generateUserLogs(productDetails,userProductDetails)
 
 };
 
+/////////////////////////////////////////////////////// getVariants ///////////////////////////////////////////////////
+async function getVariants(payload) {
+    try{
+        let step1 =   getVariantFunction(payload);
+        let step2 =   getVariantCount();
+        return {
+            statusCode      :  200,
+            message         : "Success",
+            data            : {
+                listing         : await step1,
+                count            : (await  step2)[0].count
+            }
+
+        };
+    }
+    catch (er)
+    {
+
+        console.log(er);
+        return {
+            statusCode  : 400,
+            message     : er.sqlMessage || er.customMessage,
+            responseType: er.code || er.type,
+        };
+    }
+};
+
+async function getVariantFunction(data)
+{
+    let sql = "SELECT p.`id`,p.`size`,p.`clothType`,p.`createdAt`,p.`variantId`,p.`itemId`,p.`costPrice`,p.`sellingPrice`," +
+        "p.`quanity`,p.`isDeleted`,v.name,v.id AS variantId FROM `properties` p INNER JOIN variants v ON p.`variantId`= v.id WHERE " +
+        "p.`itemId` = ? AND v.isDeleted=0 AND p.isDeleted=0 AND p.quanity>0",arr=[parseInt(data.itemId)];
+
+  //clothType
+    //	size
+    if(data.searchParameter)
+    {
+        sql=sql +" AND clothType LIKE ? OR  size LIKE ?";
+        arr=[...arr,...[`%${data.searchParameter}%`,`%${data.searchParameter}%`]];
+    }
+
+    sql=sql +" ORDER BY createdAt ASC";
+
+    if((parseInt(data.offset)+parseInt(data.limit))>0)
+    {
+        sql=sql +" LIMIT ?,?";
+        arr=[...arr,...[parseInt(data.offset),parseInt(data.limit)]];
+    }
+
+    console.log(sql,arr);
+    return    db.connection.query(sql,arr);
+};
+
+async function getVariantCount()
+{
+    let sql = "select COUNT(id) AS count from properties";
+    let arr = [];
+    return db.connection.query(sql,arr);
+
+};
+
+
+///////////////////////////////////////////////////////  editVariants ///////////////////////////////////////////////////
+async function editVariants(payload) {
+    try{
+
+        let step1 = getVariantDetails(payload);
+         let step2 = updatePropertyData(payload);
+         let step3= generateUserLogsForVariants(await step1,payload);
+
+        return {
+            statusCode      :  200,
+            message         : "updated successfully",
+            data            :  null
+        };
+    }
+    catch (er)
+    {
+
+        console.log(er);
+        return {
+            statusCode  : 400,
+            message     : er.sqlMessage || er.customMessage,
+            responseType: er.code || er.type,
+        };
+    }
+};
+
+async function getVariantDetails(data)
+{
+    let sql = "SELECT p.`id`,p.`size`,p.`clothType`,p.`createdAt`,p.`variantId`," +
+        "p.`itemId`,p.`costPrice`,p.`sellingPrice`," +
+        "p.`quanity`,p.`isDeleted`,v.name,v.id AS variantId,i.name AS itemName FROM `properties`" +
+        " p INNER JOIN variants v ON p.`variantId`= v.id INNER JOIN items i  ON p.`itemId`= i.id WHERE " +
+        "p.id=?";
+    return   db.connection.query(sql,[parseInt(data.variantId)]);
+};
+
+async function updatePropertyData(data)
+{
+    let   sql   =  "update properties p INNER JOIN variants v ON p.`itemId`= v.id  SET " +
+        "p.`size`=?,p.`clothType`=?,p.`costPrice`=?,p.`sellingPrice`=?,p.`quanity`=?,v.name=? where p.id=?";
+    return   db.connection.query(sql,[data.size,data.clothType,data.costPrice,data.sellingPrice,data.quanity,data.name,parseInt(data.variantId)]);
+};
+
+async function generateUserLogsForVariants(productDetails,userProductDetails)
+{
+// console.log("===generateUserLogs========userProductDetails======userProductDetails===",productDetails,userProductDetails);
+
+    let notificationString = userProductDetails.userData.name+ " has changed the variant "+productDetails[0].name ;
+    let count = 0;
+
+
+    if(productDetails[0].size !=userProductDetails.size)
+    {
+        notificationString= notificationString+" size";
+        count++;
+    }
+    if(productDetails[0].clothType !=userProductDetails.clothType)
+    {
+        if(count>0)
+            notificationString= notificationString+",clothType";
+        else
+            notificationString= notificationString+" clothType";
+
+        count++;
+    }
+    if(productDetails[0].costPrice !=userProductDetails.costPrice)
+    {
+        if(count>0)
+            notificationString= notificationString+",costPrice";
+        else
+            notificationString= notificationString+" costPrice";
+
+        count++;
+    }
+    if(productDetails[0].sellingPrice !=userProductDetails.sellingPrice)
+    {
+        if(count>0)
+            notificationString= notificationString+",sellingPrice";
+        else
+            notificationString= notificationString+" sellingPrice";
+
+        count++;
+    }
+    if(productDetails[0].quanity !=userProductDetails.quanity)
+    {
+        if(count>0)
+            notificationString= notificationString+",quanity";
+        else
+            notificationString= notificationString+" quanity";
+
+        count++;
+    }
+    if(productDetails[0].name !=userProductDetails.name)
+    {
+        if(count>0)
+            notificationString= notificationString+",name";
+        else
+            notificationString= notificationString+" name";
+
+        count++;
+    }
+
+    notificationString = notificationString + " of product "+productDetails[0].itemName +" .";
+
+    console.log(notificationString);
+    if(count>0)
+    {
+        let sql    = "INSERT INTO userLogs(notificationString,userId,itemId,variantId) VALUES (?,?,?,?)",
+            params = [notificationString,userProductDetails.userData.id,userProductDetails.itemId,userProductDetails.variantId?userProductDetails.variantId:null];
+        return  await db.connection.query(sql,params);
+    }
+
+};
+
+
+/////////////////////////////////////////////////////// getUserLogs ///////////////////////////////////////////////////
+async function getUserLogs(payload) {
+    try{
+        let step1 =   getUserLogsFunction(payload);
+        let step2 =   getUserLogsCount(payload);
+        return {
+            statusCode      :  200,
+            message         : "Success",
+            data            : {
+                listing          : await step1,
+                count            : (await  step2)[0].count
+            }
+
+        };
+    }
+    catch (er)
+    {
+
+        console.log(er);
+        return {
+            statusCode  : 400,
+            message     : er.sqlMessage || er.customMessage,
+            responseType: er.code || er.type,
+        };
+    }
+};
+
+async function getUserLogsFunction(data)
+{
+    let sql = "SELECT * from userLogs where userId = ? ",arr=[data.userId];
+    return    db.connection.query(sql,arr);
+};
+
+async function getUserLogsCount(data)
+{
+    let sql = "select COUNT(id) AS count from userLogs where userId = ?";
+    let arr = [data.userId];
+    return db.connection.query(sql,arr);
+
+};
+
+
+
+
+
+
+
 
 module.exports = {
     signUp              : signUp,
     login               : login,
     itemListing         : itemListing,
-    editProducts        : editProducts
+    editProducts        : editProducts,
+    getVariants         : getVariants,
+    editVariants        : editVariants,
+    getUserLogs         : getUserLogs
 };
